@@ -3,27 +3,24 @@ import {
     Image,
     Text,
     View,
-    StyleSheet
+    StyleSheet,
+    TouchableOpacity,
+    Alert
 } from 'react-native';
 import SkillImage from '../assets/cloud-network.png';
 
-const img = require('../assets/cloud-network.png');
-
 export default function CategoryListItem({ title, urlImg }) {
-  // const SkillImage = require('../assets/splash.png');
-  // img = require(urlImg);
-
   return (
-    <View style={styles.container}>
-      <Text style={styles.title}>{title}</Text>
-      <Image style={styles.categoryImage} source={img} />
-      <Text>{urlImg}</Text>
-    </View>
+    <TouchableOpacity activeOpacity={0.5} onPress={() => {
+      Alert.alert('Click');
+    }}>
+      <View style={styles.container}>
+        <Text style={styles.title}>{title}</Text>
+        <Image style={styles.categoryImage} source={urlImg ? urlImg : SkillImage} />
+      </View>
+    </TouchableOpacity>
   );
 }
-
-// Samsung A10 bi thut vao 
-const pixelRedundancy = 150;
 
 const styles = StyleSheet.create({
   container: {
